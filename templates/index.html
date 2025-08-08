@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CodeXecutor</title>
+
+    <!-- Google Fonts link -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        h1 {
+            font-weight: 600;
+        }
+        label {
+            font-weight: 500;
+        }
+        textarea, select, button {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Code Syntax Checker</h1>
+       <form method="POST">
+        <label>Choose Language:</label><br>
+        <select name="language">
+            <option value="python" {% if language == 'python' %}selected{% endif %}>Python</option>
+            <option value="javascript" {% if language == 'javascript' %}selected{% endif %}>JavaScript</option>
+            <option value="c" {% if language == 'c' %}selected{% endif %}>C</option>
+            <option value="java" {% if language == 'java' %}selected{% endif %}>Java</option>
+        </select>
+        <br><br>
+
+        <label>Code:</label><br>
+        <textarea name="code" rows="10" cols="80" placeholder="Enter your code here...">{{ code }}</textarea><br><br>
+
+        <label>Program Input:</label><br>
+        <textarea name="program_input" rows="5" cols="80" placeholder="Input values for your program...">{{ program_input }}</textarea><br><br>
+
+        <button type="submit">Run</button>
+    </form>
+
+{% if result %}
+  <p><strong>{{ result }}</strong></p>
+{% endif %}
+
+{% if output %}
+        <h3>Program Output:</h3>
+        <pre>{{ output }}</pre>
+{% endif %}
+
+    </div>
+</body>
+</html>
