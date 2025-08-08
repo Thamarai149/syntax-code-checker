@@ -39,10 +39,12 @@ This project includes a web frontend built with **HTML** and **CSS**, and backen
 ---
 
 ## How to Run
-
-### Frontend (HTML & CSS)
-
-1. Open the `index.html` file directly in your web browser to see the website.
+1. First open the any prompt and terminal.
+2. I will use the anaconda prompt Commands:
+   1)conda activate base
+   2)cd c:\path to your project folder
+   3)Run the python file Python_file.py
+### 
 
 ### Python Scripts
 
